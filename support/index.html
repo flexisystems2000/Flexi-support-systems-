@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#003366">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071B3A">
 <meta name="description" content="Official Flexi Educational Consult Support Ticket Centre."><title>Flexi Support Centre</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{--blue:#003366;--green:#2E8B57;--royal:#4169E1;--ink:#203247;--muted:#718096;--line:#e3eaf2;--paper:#fff;--bg:#f5f8fc;--red:#b42318;--gold:#b7791f;--grad:linear-gradient(115deg,#003366 0%,#4169E1 54%,#2E8B57 100%)}
+:root{--blue:#003366;--green:#2E8B57;--royal:#071B3A;--ink:#203247;--muted:#718096;--line:#e3eaf2;--paper:#fff;--bg:#f5f8fc;--red:#b42318;--gold:#b7791f;--grad:linear-gradient(115deg,#003366 0%,#071B3A 54%,#2E8B57 100%)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 "Segoe UI",system-ui,-apple-system,sans-serif;overflow-x:hidden}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:not-allowed}.hidden{display:none!important}.muted{color:var(--muted)}.small{font-size:12px}.wrap{width:min(1160px,calc(100% - 36px));margin:0 auto}.topbar{height:70px;background:var(--blue);color:#fff;border-bottom:4px solid var(--green);display:flex;align-items:center;justify-content:space-between;padding:0 max(18px,calc((100% - 1160px)/2));gap:14px;position:relative;z-index:3}.brand{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none;min-width:0}.brand-logo{height:42px;width:42px;object-fit:contain;background:#fff;border-radius:9px;padding:2px;flex-shrink:0}.brand-title{font-size:14px;font-weight:650;letter-spacing:.01em;display:block}.brand-sub{font-size:11.5px;color:#d6e6f7;display:block}.top-actions{display:flex;align-items:center;gap:8px}.top-actions button{background:#ffffff12;color:white;border:1px solid #ffffff50;padding:7px 10px;border-radius:8px;font-size:12px}.top-actions button:hover{background:#ffffff25}.top-actions #signed-email{max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#e2ebf7}
 /* animated brand hero */
 .hero-band{background:var(--grad);color:white;position:relative;overflow:hidden;padding:35px 0 42px}.hero-band:before,.hero-band:after{content:"";position:absolute;border-radius:50%;pointer-events:none;filter:blur(1px);animation:floaty 10s ease-in-out infinite}.hero-band:before{width:300px;height:300px;right:-70px;top:-180px;background:#ffffff16}.hero-band:after{width:210px;height:210px;left:43%;bottom:-170px;background:#ffffff12;animation-delay:-4s}.hero-content{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:25px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.7px;font-weight:700;opacity:.84;display:flex;align-items:center;gap:8px}.live-dot{height:7px;width:7px;border-radius:50%;background:#a9f2bd;box-shadow:0 0 0 5px #ffffff17;animation:pulse 2s infinite}.hero-band h1{font-size:25px;line-height:1.25;letter-spacing:-.5px;font-weight:650;margin:10px 0 8px}.hero-band p{font-size:13.5px;line-height:1.7;max-width:580px;margin:0;color:#edf4ff}.hero-art{width:160px;height:130px;flex:0 0 160px;display:grid;place-items:center;position:relative}.art-ring{position:absolute;border:1px solid #ffffff50;border-radius:50%;width:112px;height:112px;animation:orbit 18s linear infinite}.art-ring:before{content:"";position:absolute;width:10px;height:10px;background:#b6f0c9;border-radius:50%;top:9px;left:18px}.art-card{width:90px;height:95px;background:#ffffffee;color:var(--blue);border-radius:14px;box-shadow:0 15px 35px #001b3d40;display:grid;place-items:center;transform:rotate(5deg);animation:bob 4s ease-in-out infinite}.art-card svg{width:45px;height:45px}.art-check{position:absolute;right:9px;bottom:15px;width:34px;height:34px;border:3px solid white;background:var(--green);border-radius:50%;display:grid;place-items:center;box-shadow:0 6px 16px #001b3d30}.art-check svg{width:18px;height:18px}
 @keyframes floaty{0%,100%{transform:translate(0,0)}50%{transform:translate(-16px,12px)}}@keyframes pulse{0%,100%{box-shadow:0 0 0 4px #ffffff18}50%{box-shadow:0 0 0 8px #ffffff09}}@keyframes orbit{to{transform:rotate(360deg)}}@keyframes bob{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-7px) rotate(2deg)}}
-main{padding:25px 0 38px}.section-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 15px}.section-heading h2{font-size:17px;font-weight:650;line-height:1.35;color:#173b61;margin:0}.section-heading p{font-size:12.5px;color:var(--muted);margin:4px 0 0}.btn{border:0;border-radius:8px;padding:9px 13px;background:var(--royal);color:white;font-size:13px;font-weight:600;transition:transform .15s,filter .15s;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn:hover{filter:brightness(.96);transform:translateY(-1px)}.btn.green{background:var(--green)}.btn.navy{background:var(--blue)}.btn.outline{background:#fff;color:var(--blue);border:1px solid #d8e2ed}.btn.ghost{background:#edf3ff;color:#3157b7}.btn.sm{font-size:12px;padding:7px 10px}.btn svg{width:15px;height:15px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 3px 14px #183b5b07}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-bottom:18px}.stat{padding:13px 15px;position:relative;overflow:hidden}.stat:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green)}.stat:nth-child(2):before{background:var(--royal)}.stat:nth-child(3):before{background:#d69a2d}.stat:nth-child(4):before{background:#92a1b3}.stat-label{font-size:12px;color:#718096;display:flex;align-items:center;gap:7px}.stat-label svg{width:15px;height:15px;color:var(--royal)}.stat strong{display:block;font-size:22px;line-height:1.3;font-weight:650;color:#173b61;margin-top:5px}.layout{display:grid;grid-template-columns:325px minmax(0,1fr);gap:15px;align-items:start}.sidebar{padding:15px}.side-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}.side-title h2{font-size:14px;font-weight:650;color:#213e5b;margin:0}.count-pill{font-size:11px;padding:3px 8px;background:#eef4ff;color:#3157b7;border-radius:20px}.search{width:100%;border:1px solid #d9e2ec;background:#fbfcfe;padding:9px 11px;border-radius:8px;font-size:13px;outline:none}.search:focus,input:focus,select:focus,textarea:focus{border-color:#7d9ce7!important;box-shadow:0 0 0 3px #4169e116;outline:none}.filter-row{display:flex;gap:7px;margin:9px 0 12px}.filter-row select{min-width:0;flex:1;border:1px solid #dce4ed;background:white;border-radius:7px;padding:8px 6px;font-size:12px;color:#40536a}.ticket-list{display:flex;flex-direction:column;gap:7px;max-height:570px;overflow:auto}.ticket-item{border:1px solid #e6ebf1;border-radius:9px;padding:11px 12px;background:#fff;text-align:left;width:100%;transition:background .15s,border-color .15s}.ticket-item:hover{border-color:#b9cbe0;background:#fafcff}.ticket-item.active{border-color:#a8c9b5;background:#f0f8f3;box-shadow:inset 3px 0 var(--green)}.ticket-item strong{display:block;font-size:13px;font-weight:620;line-height:1.45;color:#2a4056;overflow-wrap:anywhere}.ticket-meta{display:flex;justify-content:space-between;align-items:center;gap:7px;margin-top:7px;color:#8491a0;font-size:11px}.ticket-id{font-variant-numeric:tabular-nums}.tag{display:inline-flex;align-items:center;border-radius:20px;padding:3px 7px;font-size:10.5px;font-weight:650;white-space:nowrap;background:#eef2f6;color:#526174}.tag.open{background:#eaf2ff;color:#2759a4}.tag.in_progress{background:#fff2d7;color:#8a5a08}.tag.waiting_customer{background:#f0e9ff;color:#6b45a3}.tag.resolved,.tag.closed{background:#e6f5eb;color:#236a3e}.tag.urgent,.tag.high{background:#ffebe9;color:#b42318}.mainpanel{overflow:hidden;min-height:500px}.panel-head{padding:17px 19px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid #e8edf2}.panel-head h2{font-size:16px;font-weight:650;color:#183b5b;margin:0 0 4px;overflow-wrap:anywhere}.panel-head p{font-size:12px;color:var(--muted);margin:0;line-height:1.55}.panel-actions{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}.ticket-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 19px;background:#fbfcfe;border-bottom:1px solid #e8edf2}.ticket-controls label{font-size:11.5px;color:#62748a;display:flex;align-items:center;gap:6px}.ticket-controls select{border:1px solid #dce4ec;border-radius:7px;padding:7px 8px;font-size:12px;background:white;color:#3b5066}.conversation{padding:19px;background:#f7f9fc;display:flex;flex-direction:column;gap:12px;min-height:300px;max-height:480px;overflow:auto}.msg{max-width:min(82%,620px);padding:10px 12px;border-radius:11px;background:white;border:1px solid #e0e7ef;box-shadow:0 1px 2px #102d4608;font-size:13px;line-height:1.6;overflow-wrap:anywhere;align-self:flex-start}.msg.mine{align-self:flex-end;background:#edf3ff;border-color:#d6e3ff}.msg.internal{background:#fff7e4;border-color:#f1dda8}.msg .byline{font-size:10.5px;color:#8390a0;margin-bottom:4px;display:flex;gap:8px;flex-wrap:wrap}.msg .body{white-space:pre-wrap}.replybox{padding:13px 19px 16px;border-top:1px solid #e7edf2}.replybox label{font-size:12px;font-weight:650;color:#40566c;display:block;margin-bottom:7px}.replybox textarea,.field textarea{width:100%;min-height:82px;border:1px solid #d8e1eb;border-radius:8px;padding:10px 11px;resize:vertical;font-size:13px;line-height:1.55}.reply-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:9px}.checkline{font-size:11.5px;color:#708096;display:flex;align-items:center;gap:6px}.empty{padding:48px 22px;text-align:center;color:#7a899b;font-size:13px;line-height:1.7}.empty h3{font-size:16px;font-weight:650;color:#254560;margin:9px 0 5px}.empty p{max-width:400px;margin:0 auto 14px}.empty-icon{margin:0 auto 12px;width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#edf4ff;color:var(--royal)}.empty-icon svg{width:23px;height:23px}.field{display:flex;flex-direction:column;gap:5px;margin:13px 0}.field label{font-size:12px;font-weight:600;color:#43586e}.field input,.field select{width:100%;padding:10px 11px;border:1px solid #d8e1eb;border-radius:8px;background:white;color:#2c4055;font-size:13px}.field textarea{min-height:100px}.notice,.form-error{font-size:12.5px;line-height:1.5;border-radius:8px;padding:10px 12px;margin:10px 0}.notice{background:#edf8f0;color:#24643d;border:1px solid #d5eedc}.form-error{background:#fff0ef;color:#a32b24;border:1px solid #f5d2cf}.auth-layout{width:min(970px,calc(100% - 36px));margin:30px auto 44px;display:grid;grid-template-columns:1fr .92fr;gap:18px;align-items:stretch}.auth-promo{border-radius:14px;background:var(--grad);color:#fff;padding:28px;position:relative;overflow:hidden;min-height:330px}.auth-promo:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;border:1px solid #ffffff40;right:-80px;bottom:-105px;box-shadow:0 0 0 25px #ffffff09,0 0 0 55px #ffffff06}.auth-promo h2{font-size:21px;line-height:1.35;font-weight:650;margin:12px 0 8px;max-width:330px}.auth-promo p{font-size:13px;color:#edf4ff;line-height:1.75;max-width:370px}.promo-list{display:grid;gap:11px;margin-top:22px;position:relative;z-index:1}.promo-item{display:flex;gap:10px;align-items:center;font-size:12.5px;color:#f4f8ff}.promo-item span:first-child{width:27px;height:27px;display:grid;place-items:center;background:#ffffff20;border:1px solid #ffffff32;border-radius:8px}.promo-item svg{width:15px;height:15px}.auth-card{padding:24px}.auth-card h2{font-size:18px;font-weight:650;color:#173b61;margin:0 0 4px}.auth-card>p{font-size:12.5px;color:var(--muted);margin:0 0 14px}.auth-card .btn{width:100%;margin-top:4px}.auth-switch{font-size:12.5px;color:#65768a;text-align:center;margin-top:16px}.text-btn{background:none;border:0;color:var(--royal);font-size:12.5px;font-weight:650;padding:0 2px}.separator{display:flex;align-items:center;gap:10px;color:#98a4b2;font-size:11px;margin:14px 0}.separator:before,.separator:after{content:"";height:1px;flex:1;background:#e6ebf1}.foot{background:#4169E1;color:#edf3ff;border-top:4px solid var(--green);position:relative;overflow:hidden}.foot:before{content:"";position:absolute;right:-110px;top:-140px;width:300px;height:300px;border:1px solid #ffffff20;border-radius:50%;box-shadow:0 0 0 25px #ffffff08,0 0 0 55px #ffffff05;pointer-events:none}.footer-inner{position:relative;z-index:1;width:min(1160px,calc(100% - 36px));margin:0 auto;padding:30px 0 15px}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px}.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:11px}.footer-brand img{width:38px;height:38px;object-fit:contain;background:white;border-radius:8px;padding:2px}.footer-brand strong{font-size:13px;font-weight:650;display:block}.footer-brand small{font-size:11px;color:#dce7ff}.footer-about{font-size:12px;line-height:1.75;color:#e1eaff;max-width:330px;margin:0}.foot h3{font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:#fff;margin:2px 0 12px}.footer-links{display:grid;gap:8px}.footer-links a,.footer-contact a{font-size:12px;color:#e1eaff;text-decoration:none;width:fit-content}.footer-links a:hover,.footer-contact a:hover{color:#fff;text-decoration:underline}.footer-contact{display:grid;gap:9px}.footer-bottom{border-top:1px solid #ffffff30;margin-top:23px;padding-top:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;color:#d4e0ff}.toast{position:fixed;bottom:17px;left:50%;transform:translateX(-50%);z-index:20;background:#172d45;color:white;padding:10px 14px;border-radius:9px;box-shadow:0 6px 25px #0003;font-size:12.5px;max-width:calc(100% - 28px)}.loading{display:flex;align-items:center;justify-content:center;gap:9px;padding:35px;color:#748398;font-size:13px}.spinner{width:16px;height:16px;border:2px solid #d7e1ed;border-top-color:var(--royal);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+main{padding:25px 0 38px}.section-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 15px}.section-heading h2{font-size:17px;font-weight:650;line-height:1.35;color:#173b61;margin:0}.section-heading p{font-size:12.5px;color:var(--muted);margin:4px 0 0}.btn{border:0;border-radius:8px;padding:9px 13px;background:var(--royal);color:white;font-size:13px;font-weight:600;transition:transform .15s,filter .15s;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn:hover{filter:brightness(.96);transform:translateY(-1px)}.btn.green{background:var(--green)}.btn.navy{background:var(--blue)}.btn.outline{background:#fff;color:var(--blue);border:1px solid #d8e2ed}.btn.ghost{background:#edf3ff;color:#3157b7}.btn.sm{font-size:12px;padding:7px 10px}.btn svg{width:15px;height:15px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 3px 14px #183b5b07}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-bottom:18px}.stat{padding:13px 15px;position:relative;overflow:hidden}.stat:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green)}.stat:nth-child(2):before{background:var(--royal)}.stat:nth-child(3):before{background:#d69a2d}.stat:nth-child(4):before{background:#92a1b3}.stat-label{font-size:12px;color:#718096;display:flex;align-items:center;gap:7px}.stat-label svg{width:15px;height:15px;color:var(--royal)}.stat strong{display:block;font-size:22px;line-height:1.3;font-weight:650;color:#173b61;margin-top:5px}.layout{display:grid;grid-template-columns:325px minmax(0,1fr);gap:15px;align-items:start}.sidebar{padding:15px}.side-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}.side-title h2{font-size:14px;font-weight:650;color:#213e5b;margin:0}.count-pill{font-size:11px;padding:3px 8px;background:#eef4ff;color:#3157b7;border-radius:20px}.search{width:100%;border:1px solid #d9e2ec;background:#fbfcfe;padding:9px 11px;border-radius:8px;font-size:13px;outline:none}.search:focus,input:focus,select:focus,textarea:focus{border-color:#7d9ce7!important;box-shadow:0 0 0 3px #071b3a16;outline:none}.filter-row{display:flex;gap:7px;margin:9px 0 12px}.filter-row select{min-width:0;flex:1;border:1px solid #dce4ed;background:white;border-radius:7px;padding:8px 6px;font-size:12px;color:#40536a}.ticket-list{display:flex;flex-direction:column;gap:7px;max-height:570px;overflow:auto}.ticket-item{border:1px solid #e6ebf1;border-radius:9px;padding:11px 12px;background:#fff;text-align:left;width:100%;transition:background .15s,border-color .15s}.ticket-item:hover{border-color:#b9cbe0;background:#fafcff}.ticket-item.active{border-color:#a8c9b5;background:#f0f8f3;box-shadow:inset 3px 0 var(--green)}.ticket-item strong{display:block;font-size:13px;font-weight:620;line-height:1.45;color:#2a4056;overflow-wrap:anywhere}.ticket-meta{display:flex;justify-content:space-between;align-items:center;gap:7px;margin-top:7px;color:#8491a0;font-size:11px}.ticket-id{font-variant-numeric:tabular-nums}.tag{display:inline-flex;align-items:center;border-radius:20px;padding:3px 7px;font-size:10.5px;font-weight:650;white-space:nowrap;background:#eef2f6;color:#526174}.tag.open{background:#eaf2ff;color:#2759a4}.tag.in_progress{background:#fff2d7;color:#8a5a08}.tag.waiting_customer{background:#f0e9ff;color:#6b45a3}.tag.resolved,.tag.closed{background:#e6f5eb;color:#236a3e}.tag.urgent,.tag.high{background:#ffebe9;color:#b42318}.mainpanel{overflow:hidden;min-height:500px}.panel-head{padding:17px 19px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid #e8edf2}.panel-head h2{font-size:16px;font-weight:650;color:#183b5b;margin:0 0 4px;overflow-wrap:anywhere}.panel-head p{font-size:12px;color:var(--muted);margin:0;line-height:1.55}.panel-actions{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}.ticket-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 19px;background:#fbfcfe;border-bottom:1px solid #e8edf2}.ticket-controls label{font-size:11.5px;color:#62748a;display:flex;align-items:center;gap:6px}.ticket-controls select{border:1px solid #dce4ec;border-radius:7px;padding:7px 8px;font-size:12px;background:white;color:#3b5066}.conversation{padding:19px;background:#f7f9fc;display:flex;flex-direction:column;gap:12px;min-height:300px;max-height:480px;overflow:auto}.msg{max-width:min(82%,620px);padding:10px 12px;border-radius:11px;background:white;border:1px solid #e0e7ef;box-shadow:0 1px 2px #102d4608;font-size:13px;line-height:1.6;overflow-wrap:anywhere;align-self:flex-start}.msg.mine{align-self:flex-end;background:#edf3ff;border-color:#d6e3ff}.msg.internal{background:#fff7e4;border-color:#f1dda8}.msg .byline{font-size:10.5px;color:#8390a0;margin-bottom:4px;display:flex;gap:8px;flex-wrap:wrap}.msg .body{white-space:pre-wrap}.replybox{padding:13px 19px 16px;border-top:1px solid #e7edf2}.replybox label{font-size:12px;font-weight:650;color:#40566c;display:block;margin-bottom:7px}.replybox textarea,.field textarea{width:100%;min-height:82px;border:1px solid #d8e1eb;border-radius:8px;padding:10px 11px;resize:vertical;font-size:13px;line-height:1.55}.reply-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:9px}.checkline{font-size:11.5px;color:#708096;display:flex;align-items:center;gap:6px}.empty{padding:48px 22px;text-align:center;color:#7a899b;font-size:13px;line-height:1.7}.empty h3{font-size:16px;font-weight:650;color:#254560;margin:9px 0 5px}.empty p{max-width:400px;margin:0 auto 14px}.empty-icon{margin:0 auto 12px;width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#edf4ff;color:var(--royal)}.empty-icon svg{width:23px;height:23px}.field{display:flex;flex-direction:column;gap:5px;margin:13px 0}.field label{font-size:12px;font-weight:600;color:#43586e}.field input,.field select{width:100%;padding:10px 11px;border:1px solid #d8e1eb;border-radius:8px;background:white;color:#2c4055;font-size:13px}.field textarea{min-height:100px}.notice,.form-error{font-size:12.5px;line-height:1.5;border-radius:8px;padding:10px 12px;margin:10px 0}.notice{background:#edf8f0;color:#24643d;border:1px solid #d5eedc}.form-error{background:#fff0ef;color:#a32b24;border:1px solid #f5d2cf}.auth-layout{width:min(970px,calc(100% - 36px));margin:30px auto 44px;display:grid;grid-template-columns:1fr .92fr;gap:18px;align-items:stretch}.auth-promo{border-radius:14px;background:var(--grad);color:#fff;padding:28px;position:relative;overflow:hidden;min-height:330px}.auth-promo:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;border:1px solid #ffffff40;right:-80px;bottom:-105px;box-shadow:0 0 0 25px #ffffff09,0 0 0 55px #ffffff06}.auth-promo h2{font-size:21px;line-height:1.35;font-weight:650;margin:12px 0 8px;max-width:330px}.auth-promo p{font-size:13px;color:#edf4ff;line-height:1.75;max-width:370px}.promo-list{display:grid;gap:11px;margin-top:22px;position:relative;z-index:1}.promo-item{display:flex;gap:10px;align-items:center;font-size:12.5px;color:#f4f8ff}.promo-item span:first-child{width:27px;height:27px;display:grid;place-items:center;background:#ffffff20;border:1px solid #ffffff32;border-radius:8px}.promo-item svg{width:15px;height:15px}.auth-card{padding:24px}.auth-card h2{font-size:18px;font-weight:650;color:#173b61;margin:0 0 4px}.auth-card>p{font-size:12.5px;color:var(--muted);margin:0 0 14px}.auth-card .btn{width:100%;margin-top:4px}.auth-switch{font-size:12.5px;color:#65768a;text-align:center;margin-top:16px}.text-btn{background:none;border:0;color:var(--royal);font-size:12.5px;font-weight:650;padding:0 2px}.separator{display:flex;align-items:center;gap:10px;color:#98a4b2;font-size:11px;margin:14px 0}.separator:before,.separator:after{content:"";height:1px;flex:1;background:#e6ebf1}.foot{background:#071B3A;color:#edf3ff;border-top:4px solid var(--green);position:relative;overflow:hidden}.foot:before{content:"";position:absolute;right:-110px;top:-140px;width:300px;height:300px;border:1px solid #ffffff20;border-radius:50%;box-shadow:0 0 0 25px #ffffff08,0 0 0 55px #ffffff05;pointer-events:none}.footer-inner{position:relative;z-index:1;width:min(1160px,calc(100% - 36px));margin:0 auto;padding:30px 0 15px}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px}.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:11px}.footer-brand img{width:38px;height:38px;object-fit:contain;background:white;border-radius:8px;padding:2px}.footer-brand strong{font-size:13px;font-weight:650;display:block}.footer-brand small{font-size:11px;color:#dce7ff}.footer-about{font-size:12px;line-height:1.75;color:#e1eaff;max-width:330px;margin:0}.foot h3{font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:#fff;margin:2px 0 12px}.footer-links{display:grid;gap:8px}.footer-links a,.footer-contact a{font-size:12px;color:#e1eaff;text-decoration:none;width:fit-content}.footer-links a:hover,.footer-contact a:hover{color:#fff;text-decoration:underline}.footer-contact{display:grid;gap:9px}.footer-bottom{border-top:1px solid #ffffff30;margin-top:23px;padding-top:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;color:#d4e0ff}.toast{position:fixed;bottom:17px;left:50%;transform:translateX(-50%);z-index:20;background:#172d45;color:white;padding:10px 14px;border-radius:9px;box-shadow:0 6px 25px #0003;font-size:12.5px;max-width:calc(100% - 28px)}.loading{display:flex;align-items:center;justify-content:center;gap:9px;padding:35px;color:#748398;font-size:13px}.spinner{width:16px;height:16px;border:2px solid #d7e1ed;border-top-color:var(--royal);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:850px){.hero-art{width:125px;flex-basis:125px}.layout{grid-template-columns:1fr}.sidebar{order:2}.mainpanel{order:1}.ticket-list{max-height:300px}.auth-layout{grid-template-columns:1fr;max-width:520px}.auth-promo{min-height:unset;padding:23px}.promo-list{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1.2fr 1fr;gap:23px}.footer-grid>section:first-child{grid-column:1/-1}.footer-about{max-width:540px}}
 @media(max-width:560px){.wrap,.footer-inner{width:calc(100% - 26px)}.topbar{height:62px;padding:0 12px}.brand{gap:8px}.brand-logo{width:35px;height:35px}.brand-title{font-size:12.5px}.brand-sub{font-size:10.5px}.top-actions #signed-email{display:none}.top-actions button{padding:6px 8px;font-size:11px}.hero-band{padding:25px 0 30px}.hero-content{align-items:center;gap:8px}.hero-band h1{font-size:21px}.hero-band p{font-size:12.5px;max-width:290px}.eyebrow{font-size:9.5px;letter-spacing:1.2px}.hero-art{width:86px;height:100px;flex-basis:86px}.art-ring{width:76px;height:76px}.art-card{width:60px;height:68px;border-radius:10px}.art-card svg{width:34px;height:34px}.art-check{width:27px;height:27px;right:0;bottom:9px}.art-check svg{width:14px;height:14px}main{padding-top:19px}.wrap{width:calc(100% - 24px)}.section-heading{align-items:flex-start}.section-heading h2{font-size:16px}.section-heading p{font-size:11.5px}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stat{padding:11px 12px}.stat-label{font-size:11px}.stat strong{font-size:20px}.layout{gap:11px}.sidebar{padding:12px}.panel-head{display:block;padding:14px}.panel-actions{justify-content:flex-start;margin-top:10px}.ticket-controls{padding:10px 14px}.ticket-controls label{width:100%;justify-content:space-between}.ticket-controls select{flex:1;max-width:none}.conversation{padding:13px;min-height:260px;max-height:55vh}.msg{max-width:94%;font-size:12.5px}.replybox{padding:12px 14px 14px}.reply-actions{align-items:flex-start}.auth-layout{width:calc(100% - 24px);margin:18px auto 28px;gap:11px}.auth-promo{padding:20px}.auth-promo h2{font-size:18px}.promo-list{grid-template-columns:1fr}.auth-card{padding:20px 17px}.footer-inner{padding-top:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:22px 14px}.footer-grid>section:first-child{grid-column:1/-1}.footer-brand strong{font-size:12.5px}.footer-bottom{font-size:10.5px}.empty{padding:38px 16px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
@@ -25,47 +25,1039 @@ main{padding:25px 0 38px}.section-heading{display:flex;justify-content:space-bet
 <div id="toast" class="toast hidden" role="status"></div>
 <div id="ticket-modal" class="hidden" style="position:fixed;inset:0;background:#07182a88;backdrop-filter:blur(4px);z-index:10;display:grid;place-items:center;padding:15px"><div class="card auth-card" style="width:min(520px,100%);max-height:92vh;overflow:auto"><div class="section-heading"><div><h2>Create a support ticket</h2><p>Tell us what you need help with.</p></div><button id="close-modal" class="btn outline sm" type="button">Close</button></div><div id="ticket-form-error" class="form-error hidden"></div><form id="new-ticket-form"><div class="field"><label for="new-subject">Subject</label><input id="new-subject" required minlength="4" maxlength="160" placeholder="Briefly describe the issue"></div><div class="field"><label for="new-category">Category</label><select id="new-category"><option>General</option><option>Account &amp; Login</option><option>Payments</option><option>JAMB/WAEC CBT</option><option>Website Problem</option><option>Learning Support</option><option>Bug Report</option><option>Other</option></select></div><div class="field"><label for="new-priority">Priority</label><select id="new-priority"><option value="normal">Normal</option><option value="low">Low</option><option value="high">High</option><option value="urgent">Urgent</option></select></div><div class="field"><label for="new-description">Describe the issue</label><textarea id="new-description" required minlength="10" maxlength="8000" placeholder="What happened? What were you trying to do? Include any helpful details, but never send your password." style="min-height:130px"></textarea></div><button id="create-ticket-submit" class="btn green" type="submit" style="width:100%">Submit ticket</button></form></div></div>
 <script type="module">
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signOut, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import {
+  initializeApp
+} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 
-const firebaseConfig={apiKey:'AIzaSyA0bM6pk1T1peGSS7quvFPEMOMuplnNRNM',authDomain:'auth.flexieduconsult.com.ng',projectId:'waec2026jamb2027'};
-const app=initializeApp(firebaseConfig);const auth=getAuth(app);const googleProvider=new GoogleAuthProvider();
-const SUPABASE_URL='https://ryvauylmymcvbvvlaceb.supabase.co';const SUPABASE_KEY='sb_publishable_zF84MIhSPOZ3MXth_LLqDA_yQ4pIvp6';
-const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{accessToken:async()=>auth.currentUser?await auth.currentUser.getIdToken():null});
-const $=id=>document.getElementById(id);let user=null,isSignup=false,isStaff=false,tickets=[],selectedTicket=null,staffList=[],channel=null,toastTimer=null;
-$('year').textContent=new Date().getFullYear();
-const statusLabel={open:'Open',in_progress:'In progress',waiting_customer:'Waiting for you',resolved:'Resolved',closed:'Closed'};
-function toast(msg){const el=$('toast');el.textContent=msg;el.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.add('hidden'),3400)}
-function err(el,msg){el.textContent=msg;el.classList.remove('hidden')}function clearErr(el){el.textContent='';el.classList.add('hidden')}
-function humanError(e){const m=e?.message||String(e);if(/invalid-credential|wrong-password|user-not-found/i.test(e?.code||m))return 'Email or password is incorrect. Please try again.';if(/email-already-in-use/i.test(e?.code||m))return 'An account already exists with this email. Please sign in instead.';if(/weak-password/i.test(e?.code||m))return 'Please choose a stronger password (at least 6 characters).';if(/popup-closed-by-user/i.test(e?.code||m))return 'Google sign-in was cancelled.';if(/network-request-failed/i.test(e?.code||m))return 'Network issue. Check your internet connection and try again.';return m}
-function niceDate(d){if(!d)return '';const x=new Date(d);return Number.isNaN(x.getTime())?'':x.toLocaleString([],{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})}
-function safe(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function statusTag(status){return `<span class="tag ${safe(status)}">${safe(statusLabel[status]||status)}</span>`}
-function setBusy(btn,on,label){if(on){btn.dataset.old=btn.textContent;btn.disabled=true;btn.textContent=label||'Please wait…'}else{btn.disabled=false;btn.textContent=btn.dataset.old||btn.textContent;delete btn.dataset.old}}
-function showAuth(){ $('auth-view').classList.remove('hidden');$('app-view').classList.add('hidden');$('logout-btn').classList.add('hidden');$('signed-email').textContent=''; }
-function showApp(){ $('auth-view').classList.add('hidden');$('app-view').classList.remove('hidden');$('logout-btn').classList.remove('hidden');$('signed-email').textContent=user?.email||''; }
-$('auth-switch').addEventListener('click',()=>{isSignup=!isSignup;$('auth-title').textContent=isSignup?'Create your Flexi account':'Sign in to Support';$('auth-subtitle').textContent=isSignup?'Create an account using your email, or use Google.':'Use the same Firebase account you use on Flexi.';$('name-field').classList.toggle('hidden',!isSignup);$('auth-password').autocomplete=isSignup?'new-password':'current-password';$('auth-submit').textContent=isSignup?'Create account':'Sign in';$('auth-switch-label').textContent=isSignup?'Already have an account?':'New to Flexi Support?';$('auth-switch').textContent=isSignup?'Sign in':'Create account';clearErr($('auth-error'));clearErr($('auth-notice'))});
-$('auth-form').addEventListener('submit',async e=>{e.preventDefault();clearErr($('auth-error'));clearErr($('auth-notice'));const email=$('auth-email').value.trim(),password=$('auth-password').value;const btn=$('auth-submit');setBusy(btn,true,isSignup?'Creating account…':'Signing in…');try{if(isSignup){const name=$('auth-name').value.trim();const res=await createUserWithEmailAndPassword(auth,email,password);if(name)await updateProfile(res.user,{displayName:name});await res.user.getIdToken(true);toast('Account created. Welcome to Flexi Support.')}else{await signInWithEmailAndPassword(auth,email,password)}}catch(e){err($('auth-error'),humanError(e))}finally{setBusy(btn,false)}});
-$('google-btn').addEventListener('click',async()=>{clearErr($('auth-error'));try{await signInWithPopup(auth,googleProvider)}catch(e){err($('auth-error'),humanError(e))}});
-$('forgot-btn').addEventListener('click',async()=>{clearErr($('auth-error'));const email=$('auth-email').value.trim();if(!email){err($('auth-error'),'Enter your email address above first.');return}try{await sendPasswordResetEmail(auth,email);err($('auth-notice'),'If an account exists for this email, Firebase will send a password reset link.');$('auth-notice').classList.remove('hidden')}catch(e){err($('auth-error'),humanError(e))}});
-$('logout-btn').addEventListener('click',async()=>{if(channel){await db.removeChannel(channel);channel=null}await signOut(auth);user=null;toast('You have signed out.');showAuth()});
-onAuthStateChanged(auth,async u=>{user=u;if(!u){showAuth();return}showApp();$('welcome-line').textContent=`Welcome${u.displayName?' back, '+u.displayName.split(' ')[0]:''} — your support requests`;try{await u.getIdToken();await db.realtime.setAuth(await u.getIdToken());await loadTickets();await checkStaff();await startRealtime()}catch(e){showDbError(e)}});
-function showDbError(e){console.error(e);err($('global-error'),'We could not connect to the support database. Please try refreshing. If this continues, the Firebase third-party authentication integration in Supabase may need to be enabled.');}
-async function checkStaff(){if(!user)return;try{const {data,error}=await db.from('support_staff').select('user_id,email,display_name,role,active').eq('user_id',user.uid).maybeSingle();if(error)throw error;isStaff=!!(data&&data.active);staffList=[];if(isStaff){const res=await db.from('support_staff').select('user_id,email,display_name,role,active').eq('active',true);if(!res.error)staffList=res.data||[];$('staff-controls').classList.remove('hidden');fillAssignees()}else $('staff-controls').classList.add('hidden');await loadTickets()}catch(e){console.warn('Staff check:',e.message)}}
-function fillAssignees(){const el=$('staff-assign');el.innerHTML='<option value="">Unassigned</option>'+staffList.map(s=>`<option value="${safe(s.user_id)}">${safe(s.display_name||s.email)}</option>`).join('')}
-async function loadTickets(){if(!user)return;clearErr($('global-error'));let q=db.from('support_tickets').select('*').order('last_message_at',{ascending:false});if(!isStaff)q=q.eq('user_id',user.uid);const {data,error}=await q;if(error)throw error;tickets=data||[];renderStats();renderTicketList();if(selectedTicket){const latest=tickets.find(t=>t.id===selectedTicket.id);if(latest){selectedTicket=latest;renderTicketHeader()}else{selectedTicket=null;showTicketEmpty()}}}
-function renderStats(){const mine=tickets;$('stat-open').textContent=mine.filter(t=>t.status==='open').length;$('stat-progress').textContent=mine.filter(t=>t.status==='in_progress').length;$('stat-waiting').textContent=mine.filter(t=>t.status==='waiting_customer').length;$('stat-resolved').textContent=mine.filter(t=>['resolved','closed'].includes(t.status)).length}
-function renderTicketList(){const search=$('ticket-search').value.toLowerCase().trim(),status=$('status-filter').value,sort=$('sort-filter').value;let rows=tickets.filter(t=>(status==='all'||t.status===status)&&(!search||String(t.ticket_number).includes(search)||t.subject.toLowerCase().includes(search)));if(sort==='oldest')rows=[...rows].sort((a,b)=>new Date(a.created_at)-new Date(b.created_at));$('ticket-count').textContent=`${tickets.length} ${tickets.length===1?'request':'requests'}`;const list=$('ticket-list');if(!rows.length){list.innerHTML='<div class="empty" style="padding:25px 8px"><h3>No tickets found</h3><p>Try another filter, or create a new support request.</p></div>';return}list.innerHTML=rows.map(t=>`<button type="button" class="ticket-item ${selectedTicket?.id===t.id?'active':''}" data-ticket="${safe(t.id)}"><strong>${safe(t.subject)}</strong><div class="ticket-meta"><span class="ticket-id">#FEC-${String(t.ticket_number).padStart(5,'0')}</span>${statusTag(t.status)}</div><div class="ticket-meta"><span>${safe(t.category)}</span><span>${safe(niceDate(t.last_message_at||t.created_at))}</span></div></button>`).join('');list.querySelectorAll('[data-ticket]').forEach(b=>b.addEventListener('click',()=>openTicket(b.dataset.ticket)))}
-function showTicketEmpty(){$('ticket-empty').classList.remove('hidden');$('ticket-detail').classList.add('hidden')}
-function renderTicketHeader(){if(!selectedTicket)return;$('ticket-empty').classList.add('hidden');$('ticket-detail').classList.remove('hidden');$('detail-subject').textContent=selectedTicket.subject;$('detail-meta').textContent=`Ticket #FEC-${String(selectedTicket.ticket_number).padStart(5,'0')} · Created ${niceDate(selectedTicket.created_at)} · ${selectedTicket.category}`;$('detail-status').className=`tag ${selectedTicket.status}`;$('detail-status').textContent=statusLabel[selectedTicket.status]||selectedTicket.status;if(isStaff){$('staff-status').value=selectedTicket.status;$('staff-priority').value=selectedTicket.priority;$('staff-assign').value=selectedTicket.assigned_to||''}renderTicketList()}
-async function openTicket(id){const t=tickets.find(x=>x.id===id);if(!t)return;selectedTicket=t;renderTicketHeader();$('conversation').innerHTML='<div class="loading"><span class="spinner"></span> Loading conversation…</div>';const {data,error}=await db.from('support_messages').select('*').eq('ticket_id',id).order('created_at',{ascending:true});if(error){$('conversation').innerHTML='<div class="empty">Could not load messages. Please refresh and try again.</div>';console.error(error);return}const msgs=data||[];$('conversation').innerHTML=msgs.length?msgs.map(m=>{const mine=m.sender_id===user.uid;const staff=staffList.find(s=>s.user_id===m.sender_id);const who=mine?'You':(staff?.display_name||'Flexi Support');return `<article class="msg ${mine?'mine':''} ${m.is_internal?'internal':''}"><div class="byline"><strong>${safe(who)}</strong><span>${safe(niceDate(m.created_at))}</span>${m.is_internal?'<b>Internal note</b>':''}</div><div class="body">${safe(m.body)}</div></article>`}).join(''):'<div class="empty">No messages yet. Send a reply below to continue the conversation.</div>';if(!isStaff&&['resolved','closed'].includes(selectedTicket.status)){$('reply-text').disabled=true;$('reply-submit').disabled=true;$('reply-text').placeholder='This ticket is closed. Open a new ticket if you need further help.'}else{$('reply-text').disabled=false;$('reply-submit').disabled=false;$('reply-text').placeholder='Type your message here…'}$('conversation').scrollTop=$('conversation').scrollHeight}
-$('ticket-search').addEventListener('input',renderTicketList);$('status-filter').addEventListener('change',renderTicketList);$('sort-filter').addEventListener('change',renderTicketList);
-function openModal(){$('ticket-modal').classList.remove('hidden');$('new-subject').focus()}function closeModal(){$('ticket-modal').classList.add('hidden');$('new-ticket-form').reset();clearErr($('ticket-form-error'))}$('new-ticket-btn').addEventListener('click',openModal);$('empty-new-ticket').addEventListener('click',openModal);$('close-modal').addEventListener('click',closeModal);$('ticket-modal').addEventListener('click',e=>{if(e.target===$('ticket-modal'))closeModal()});
-$('new-ticket-form').addEventListener('submit',async e=>{e.preventDefault();if(!user)return;clearErr($('ticket-form-error'));const btn=$('create-ticket-submit');setBusy(btn,true,'Submitting ticket…');try{const subject=$('new-subject').value.trim(),description=$('new-description').value.trim();const {data:ticket,error}=await db.from('support_tickets').insert({user_id:user.uid,requester_email:user.email||'',subject,description,category:$('new-category').value,priority:isStaff?$('new-priority').value:'normal',status:'open'}).select('*').single();if(error)throw error;const {error:msgError}=await db.from('support_messages').insert({ticket_id:ticket.id,sender_id:user.uid,body:description,is_internal:false});if(msgError)throw msgError;closeModal();await loadTickets();toast(`Ticket #FEC-${String(ticket.ticket_number).padStart(5,'0')} submitted.`);await openTicket(ticket.id)}catch(e){console.error(e);err($('ticket-form-error'),e.message||'Could not create the ticket. Please try again.')}finally{setBusy(btn,false)}});
-$('reply-form').addEventListener('submit',async e=>{e.preventDefault();if(!user||!selectedTicket)return;const body=$('reply-text').value.trim();if(!body)return;const btn=$('reply-submit');setBusy(btn,true,'Sending…');try{const {error}=await db.from('support_messages').insert({ticket_id:selectedTicket.id,sender_id:user.uid,body,is_internal:false});if(error)throw error;if(isStaff&&selectedTicket.status==='waiting_customer'){await db.from('support_tickets').update({status:'in_progress'}).eq('id',selectedTicket.id)}$('reply-text').value='';await loadTickets();await openTicket(selectedTicket.id);toast('Reply sent.')}catch(e){toast(e.message||'Could not send reply.')}finally{setBusy(btn,false)}});
-$('save-ticket-controls').addEventListener('click',async()=>{if(!isStaff||!selectedTicket)return;const btn=$('save-ticket-controls');setBusy(btn,true,'Saving…');try{const {error}=await db.from('support_tickets').update({status:$('staff-status').value,priority:$('staff-priority').value,assigned_to:$('staff-assign').value||null,updated_at:new Date().toISOString()}).eq('id',selectedTicket.id);if(error)throw error;await loadTickets();toast('Ticket updated.')}catch(e){toast(e.message||'Could not update ticket.')}finally{setBusy(btn,false)}});
-// Refresh the ticket workspace when database events arrive. Firebase remains the identity provider.
-async function startRealtime(){if(channel){await db.removeChannel(channel);channel=null}if(!user)return;channel=db.channel('fec-support-'+user.uid).on('postgres_changes',{event:'*',schema:'public',table:'support_messages'},async payload=>{if(selectedTicket&&payload.new?.ticket_id===selectedTicket.id)await openTicket(selectedTicket.id);await loadTickets()}).on('postgres_changes',{event:'*',schema:'public',table:'support_tickets'},async()=>{await loadTickets()}).subscribe()}
-// Realtime starts only after the Firebase ID token has been passed to Supabase.
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  sendPasswordResetEmail
+} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+/* =========================================================
+   FLEXI SUPPORT CENTRE
+   Firebase handles user authentication.
+   Supabase Edge Function handles support ticket operations.
+   ========================================================= */
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyA0bM6pk1T1peGSS7quvFPEMOMuplnNRNM',
+  authDomain: 'auth.flexieduconsult.com.ng',
+  projectId: 'waec2026jamb2027'
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+
+const SUPABASE_URL = 'https://ryvauylmymcvbvvlaceb.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zF84MIhSPOZ3MXth_LLqDA_yQ4pIvp6';
+
+const API_URL =
+  `${SUPABASE_URL}/functions/v1/flexi-support-api`;
+
+const $ = id => document.getElementById(id);
+
+let user = null;
+let isSignup = false;
+let isStaff = false;
+let tickets = [];
+let selectedTicket = null;
+let staffList = [];
+let toastTimer = null;
+let refreshTimer = null;
+let loadingTickets = false;
+let loadingMessages = false;
+let currentMessagesRequest = 0;
+
+$('year').textContent = new Date().getFullYear();
+
+const statusLabel = {
+  open: 'Open',
+  in_progress: 'In progress',
+  waiting_customer: 'Waiting for you',
+  resolved: 'Resolved',
+  closed: 'Closed'
+};
+
+/* =========================================================
+   COMMON HELPERS
+   ========================================================= */
+
+function toast(message) {
+  const el = $('toast');
+  el.textContent = message;
+  el.classList.remove('hidden');
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    el.classList.add('hidden');
+  }, 3400);
+}
+
+function err(element, message) {
+  element.textContent = message;
+  element.classList.remove('hidden');
+}
+
+function clearErr(element) {
+  element.textContent = '';
+  element.classList.add('hidden');
+}
+
+function humanError(error) {
+  const message = error?.message || String(error);
+  const code = error?.code || message;
+
+  if (/invalid-credential|wrong-password|user-not-found/i.test(code)) {
+    return 'Email or password is incorrect. Please try again.';
+  }
+
+  if (/email-already-in-use/i.test(code)) {
+    return 'An account already exists with this email. Please sign in instead.';
+  }
+
+  if (/weak-password/i.test(code)) {
+    return 'Please choose a stronger password (at least 6 characters).';
+  }
+
+  if (/popup-closed-by-user/i.test(code)) {
+    return 'Google sign-in was cancelled.';
+  }
+
+  if (/network-request-failed|failed to fetch|networkerror/i.test(code)) {
+    return 'Network issue. Check your internet connection and try again.';
+  }
+
+  return message;
+}
+
+function niceDate(date) {
+  if (!date) return '';
+
+  const value = new Date(date);
+
+  if (Number.isNaN(value.getTime())) return '';
+
+  return value.toLocaleString([], {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
+
+function safe(value) {
+  return String(value ?? '').replace(/[&<>"']/g, character => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[character]);
+}
+
+function statusTag(status) {
+  return `<span class="tag ${safe(status)}">${
+    safe(statusLabel[status] || status)
+  }</span>`;
+}
+
+function setBusy(button, busy, label) {
+  if (busy) {
+    button.dataset.old = button.textContent;
+    button.disabled = true;
+    button.textContent = label || 'Please wait…';
+  } else {
+    button.disabled = false;
+    button.textContent = button.dataset.old || button.textContent;
+    delete button.dataset.old;
+  }
+}
+
+/* =========================================================
+   EDGE FUNCTION REQUEST HELPER
+
+   Every protected request obtains a fresh Firebase ID token.
+   The token is sent to the Edge Function instead of sending
+   database INSERT/UPDATE requests directly from this page.
+   ========================================================= */
+
+async function api(path, options = {}) {
+  if (!user) {
+    throw new Error('Please sign in again to continue.');
+  }
+
+  const token = await user.getIdToken();
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'apikey': SUPABASE_KEY,
+    'Authorization': `Bearer ${token}`,
+    ...(options.headers || {})
+  };
+
+  let response;
+
+  try {
+    response = await fetch(`${API_URL}${path}`, {
+      method: options.method || 'GET',
+      headers,
+      body: options.body === undefined
+        ? undefined
+        : JSON.stringify(options.body),
+      cache: 'no-store'
+    });
+  } catch (error) {
+    console.error('Support API network error:', error);
+
+    throw new Error(
+      'Could not reach the Flexi Support server. Check your internet connection and try again.'
+    );
+  }
+
+  const responseText = await response.text();
+  let result = {};
+
+  if (responseText) {
+    try {
+      result = JSON.parse(responseText);
+    } catch {
+      result = { message: responseText };
+    }
+  }
+
+  if (!response.ok) {
+    const message =
+      result?.error ||
+      result?.message ||
+      result?.details ||
+      `Support server returned HTTP ${response.status}.`;
+
+    console.error('Support API error:', {
+      path,
+      status: response.status,
+      response: result
+    });
+
+    throw new Error(message);
+  }
+
+  // Accept either a raw response or a response wrapped in "data".
+  return result && Object.prototype.hasOwnProperty.call(result, 'data')
+    ? result.data
+    : result;
+}
+
+function asArray(result) {
+  if (Array.isArray(result)) return result;
+  if (Array.isArray(result?.tickets)) return result.tickets;
+  if (Array.isArray(result?.messages)) return result.messages;
+  if (Array.isArray(result?.staff)) return result.staff;
+  if (Array.isArray(result?.data)) return result.data;
+  return [];
+}
+
+/* =========================================================
+   AUTHENTICATION VIEW
+   ========================================================= */
+
+function showAuth() {
+  $('auth-view').classList.remove('hidden');
+  $('app-view').classList.add('hidden');
+  $('logout-btn').classList.add('hidden');
+  $('signed-email').textContent = '';
+}
+
+function showApp() {
+  $('auth-view').classList.add('hidden');
+  $('app-view').classList.remove('hidden');
+  $('logout-btn').classList.remove('hidden');
+  $('signed-email').textContent = user?.email || '';
+}
+
+$('auth-switch').addEventListener('click', () => {
+  isSignup = !isSignup;
+
+  $('auth-title').textContent = isSignup
+    ? 'Create your Flexi account'
+    : 'Sign in to Support';
+
+  $('auth-subtitle').textContent = isSignup
+    ? 'Create an account using your email, or use Google.'
+    : 'Use the same Firebase account you use on Flexi.';
+
+  $('name-field').classList.toggle('hidden', !isSignup);
+
+  $('auth-password').autocomplete = isSignup
+    ? 'new-password'
+    : 'current-password';
+
+  $('auth-submit').textContent = isSignup
+    ? 'Create account'
+    : 'Sign in';
+
+  $('auth-switch-label').textContent = isSignup
+    ? 'Already have an account?'
+    : 'New to Flexi Support?';
+
+  $('auth-switch').textContent = isSignup
+    ? 'Sign in'
+    : 'Create account';
+
+  clearErr($('auth-error'));
+  clearErr($('auth-notice'));
+});
+
+$('auth-form').addEventListener('submit', async event => {
+  event.preventDefault();
+
+  clearErr($('auth-error'));
+  clearErr($('auth-notice'));
+
+  const email = $('auth-email').value.trim();
+  const password = $('auth-password').value;
+  const button = $('auth-submit');
+
+  setBusy(
+    button,
+    true,
+    isSignup ? 'Creating account…' : 'Signing in…'
+  );
+
+  try {
+    if (isSignup) {
+      const name = $('auth-name').value.trim();
+
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      if (name) {
+        await updateProfile(result.user, {
+          displayName: name
+        });
+      }
+
+      await result.user.getIdToken(true);
+
+      toast('Account created. Welcome to Flexi Support.');
+    } else {
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+    }
+  } catch (error) {
+    err($('auth-error'), humanError(error));
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+$('google-btn').addEventListener('click', async () => {
+  clearErr($('auth-error'));
+
+  try {
+    await signInWithPopup(auth, googleProvider);
+  } catch (error) {
+    err($('auth-error'), humanError(error));
+  }
+});
+
+$('forgot-btn').addEventListener('click', async () => {
+  clearErr($('auth-error'));
+  clearErr($('auth-notice'));
+
+  const email = $('auth-email').value.trim();
+
+  if (!email) {
+    err(
+      $('auth-error'),
+      'Enter your email address above first.'
+    );
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+
+    err(
+      $('auth-notice'),
+      'If an account exists for this email, Firebase will send a password reset link.'
+    );
+  } catch (error) {
+    err($('auth-error'), humanError(error));
+  }
+});
+
+$('logout-btn').addEventListener('click', async () => {
+  stopRefreshing();
+
+  await signOut(auth);
+
+  user = null;
+  isStaff = false;
+  tickets = [];
+  selectedTicket = null;
+  staffList = [];
+
+  toast('You have signed out.');
+  showAuth();
+});
+
+/* =========================================================
+   AUTHENTICATION STATE
+   ========================================================= */
+
+onAuthStateChanged(auth, async currentUser => {
+  stopRefreshing();
+
+  user = currentUser;
+  isStaff = false;
+  tickets = [];
+  selectedTicket = null;
+  staffList = [];
+
+  if (!currentUser) {
+    showAuth();
+    showTicketEmpty();
+    $('ticket-list').innerHTML = '';
+    return;
+  }
+
+  showApp();
+
+  $('welcome-line').textContent =
+    `Welcome${currentUser.displayName
+      ? ' back, ' + currentUser.displayName.split(' ')[0]
+      : ''} — your support requests`;
+
+  try {
+    await currentUser.getIdToken();
+
+    await checkStaff();
+    await loadTickets();
+    await startRefreshing();
+  } catch (error) {
+    showDbError(error);
+  }
+});
+
+function showDbError(error) {
+  console.error('Flexi Support API:', error);
+
+  err(
+    $('global-error'),
+    error?.message ||
+    'We could not connect to the Flexi Support server. Please check your connection and try again.'
+  );
+}
+
+/* =========================================================
+   STAFF CHECK AND ASSIGNMENT LIST
+   ========================================================= */
+
+async function checkStaff() {
+  if (!user) return;
+
+  try {
+    const result = await api('/me');
+
+    // Accept the common response formats returned by the API.
+    const staffRecord =
+      result?.staff ||
+      result?.profile ||
+      result?.user ||
+      result;
+
+    isStaff = Boolean(
+      result?.isStaff ??
+      result?.is_staff ??
+      result?.is_staff_member ??
+      staffRecord?.isStaff ??
+      staffRecord?.is_staff ??
+      (
+        staffRecord?.user_id === user.uid &&
+        staffRecord?.active === true
+      )
+    );
+
+    staffList = [];
+
+    if (isStaff) {
+      try {
+        staffList = asArray(await api('/staff'));
+      } catch (error) {
+        console.warn('Could not load staff list:', error.message);
+      }
+
+      $('staff-controls').classList.remove('hidden');
+      fillAssignees();
+    } else {
+      $('staff-controls').classList.add('hidden');
+    }
+  } catch (error) {
+    console.warn('Staff check:', error.message);
+
+    // If staff verification fails, do not grant staff privileges.
+    isStaff = false;
+    staffList = [];
+    $('staff-controls').classList.add('hidden');
+  }
+}
+
+function fillAssignees() {
+  const element = $('staff-assign');
+
+  element.innerHTML =
+    '<option value="">Unassigned</option>' +
+    staffList.map(staff => `
+      <option value="${safe(staff.user_id)}">
+        ${safe(staff.display_name || staff.email || staff.user_id)}
+      </option>
+    `).join('');
+}
+
+/* =========================================================
+   LOAD AND DISPLAY TICKETS
+   ========================================================= */
+
+async function loadTickets() {
+  if (!user || loadingTickets) return;
+
+  loadingTickets = true;
+  clearErr($('global-error'));
+
+  try {
+    const result = await api('/tickets');
+
+    tickets = asArray(result);
+
+    // Customers should only see their own tickets. The API is
+    // responsible for enforcing access on the server as well.
+    if (!isStaff) {
+      tickets = tickets.filter(ticket =>
+        ticket.user_id === user.uid
+      );
+    }
+
+    tickets.sort((a, b) =>
+      new Date(b.last_message_at || b.created_at || 0) -
+      new Date(a.last_message_at || a.created_at || 0)
+    );
+
+    renderStats();
+    renderTicketList();
+
+    if (selectedTicket) {
+      const latest = tickets.find(
+        ticket => ticket.id === selectedTicket.id
+      );
+
+      if (latest) {
+        selectedTicket = latest;
+        renderTicketHeader();
+      } else {
+        selectedTicket = null;
+        showTicketEmpty();
+      }
+    }
+  } finally {
+    loadingTickets = false;
+  }
+}
+
+function renderStats() {
+  $('stat-open').textContent =
+    tickets.filter(ticket => ticket.status === 'open').length;
+
+  $('stat-progress').textContent =
+    tickets.filter(ticket => ticket.status === 'in_progress').length;
+
+  $('stat-waiting').textContent =
+    tickets.filter(ticket => ticket.status === 'waiting_customer').length;
+
+  $('stat-resolved').textContent =
+    tickets.filter(ticket =>
+      ['resolved', 'closed'].includes(ticket.status)
+    ).length;
+}
+
+function renderTicketList() {
+  const search = $('ticket-search').value.toLowerCase().trim();
+  const status = $('status-filter').value;
+  const sort = $('sort-filter').value;
+
+  let rows = tickets.filter(ticket => {
+    const subject = String(ticket.subject || '').toLowerCase();
+    const number = String(ticket.ticket_number ?? '');
+
+    return (
+      (status === 'all' || ticket.status === status) &&
+      (!search || number.includes(search) || subject.includes(search))
+    );
+  });
+
+  if (sort === 'oldest') {
+    rows = [...rows].sort((a, b) =>
+      new Date(a.created_at) - new Date(b.created_at)
+    );
+  }
+
+  $('ticket-count').textContent =
+    `${tickets.length} ${tickets.length === 1 ? 'request' : 'requests'}`;
+
+  const list = $('ticket-list');
+
+  if (!rows.length) {
+    list.innerHTML = `
+      <div class="empty" style="padding:25px 8px">
+        <h3>No tickets found</h3>
+        <p>Try another filter, or create a new support request.</p>
+      </div>
+    `;
+    return;
+  }
+
+  list.innerHTML = rows.map(ticket => `
+    <button
+      type="button"
+      class="ticket-item ${
+        selectedTicket?.id === ticket.id ? 'active' : ''
+      }"
+      data-ticket="${safe(ticket.id)}"
+    >
+      <strong>${safe(ticket.subject)}</strong>
+
+      <div class="ticket-meta">
+        <span class="ticket-id">
+          #FEC-${String(ticket.ticket_number ?? '').padStart(5, '0')}
+        </span>
+        ${statusTag(ticket.status)}
+      </div>
+
+      <div class="ticket-meta">
+        <span>${safe(ticket.category)}</span>
+        <span>${safe(niceDate(ticket.last_message_at || ticket.created_at))}</span>
+      </div>
+    </button>
+  `).join('');
+
+  list.querySelectorAll('[data-ticket]').forEach(button => {
+    button.addEventListener('click', () => {
+      openTicket(button.dataset.ticket);
+    });
+  });
+}
+
+function showTicketEmpty() {
+  $('ticket-empty').classList.remove('hidden');
+  $('ticket-detail').classList.add('hidden');
+}
+
+function renderTicketHeader() {
+  if (!selectedTicket) return;
+
+  $('ticket-empty').classList.add('hidden');
+  $('ticket-detail').classList.remove('hidden');
+
+  $('detail-subject').textContent = selectedTicket.subject;
+
+  $('detail-meta').textContent =
+    `Ticket #FEC-${String(selectedTicket.ticket_number ?? '').padStart(5, '0')} · Created ${niceDate(selectedTicket.created_at)} · ${selectedTicket.category}`;
+
+  $('detail-status').className =
+    `tag ${selectedTicket.status}`;
+
+  $('detail-status').textContent =
+    statusLabel[selectedTicket.status] || selectedTicket.status;
+
+  if (isStaff) {
+    $('staff-status').value = selectedTicket.status;
+    $('staff-priority').value = selectedTicket.priority;
+    $('staff-assign').value = selectedTicket.assigned_to || '';
+  }
+
+  renderTicketList();
+}
+
+/* =========================================================
+   TICKET CONVERSATION
+   ========================================================= */
+
+async function openTicket(id) {
+  const ticket = tickets.find(item => item.id === id);
+
+  if (!ticket) return;
+
+  selectedTicket = ticket;
+  renderTicketHeader();
+
+  const requestNumber = ++currentMessagesRequest;
+
+  $('conversation').innerHTML = `
+    <div class="loading">
+      <span class="spinner"></span>
+      Loading conversation…
+    </div>
+  `;
+
+  loadingMessages = true;
+
+  try {
+    const result = await api(
+      `/tickets/${encodeURIComponent(id)}/messages`
+    );
+
+    // Ignore an older request if the user has opened another ticket.
+    if (requestNumber !== currentMessagesRequest) return;
+
+    const messages = asArray(result);
+
+    $('conversation').innerHTML = messages.length
+      ? messages.map(message => {
+          const mine = message.sender_id === user.uid;
+
+          const staff = staffList.find(
+            item => item.user_id === message.sender_id
+          );
+
+          const who = mine
+            ? 'You'
+            : (staff?.display_name || 'Flexi Support');
+
+          return `
+            <article class="msg ${mine ? 'mine' : ''} ${
+              message.is_internal ? 'internal' : ''
+            }">
+              <div class="byline">
+                <strong>${safe(who)}</strong>
+                <span>${safe(niceDate(message.created_at))}</span>
+                ${
+                  message.is_internal
+                    ? '<b>Internal note</b>'
+                    : ''
+                }
+              </div>
+              <div class="body">${safe(message.body)}</div>
+            </article>
+          `;
+        }).join('')
+      : `
+        <div class="empty">
+          No messages yet. Send a reply below to continue the conversation.
+        </div>
+      `;
+
+    if (
+      !isStaff &&
+      ['resolved', 'closed'].includes(selectedTicket.status)
+    ) {
+      $('reply-text').disabled = true;
+      $('reply-submit').disabled = true;
+
+      $('reply-text').placeholder =
+        'This ticket is closed. Open a new ticket if you need further help.';
+    } else {
+      $('reply-text').disabled = false;
+      $('reply-submit').disabled = false;
+      $('reply-text').placeholder = 'Type your message here…';
+    }
+
+    $('conversation').scrollTop =
+      $('conversation').scrollHeight;
+  } catch (error) {
+    if (requestNumber === currentMessagesRequest) {
+      $('conversation').innerHTML = `
+        <div class="empty">
+          Could not load messages.
+          ${safe(error.message)}
+          Please try again.
+        </div>
+      `;
+
+      console.error('Loading messages:', error);
+    }
+  } finally {
+    loadingMessages = false;
+  }
+}
+
+/* =========================================================
+   TICKET SEARCH AND FILTERS
+   ========================================================= */
+
+$('ticket-search').addEventListener('input', renderTicketList);
+$('status-filter').addEventListener('change', renderTicketList);
+$('sort-filter').addEventListener('change', renderTicketList);
+
+/* =========================================================
+   NEW TICKET MODAL
+   ========================================================= */
+
+function openModal() {
+  $('ticket-modal').classList.remove('hidden');
+  $('new-subject').focus();
+}
+
+function closeModal() {
+  $('ticket-modal').classList.add('hidden');
+  $('new-ticket-form').reset();
+  clearErr($('ticket-form-error'));
+}
+
+$('new-ticket-btn').addEventListener('click', openModal);
+$('empty-new-ticket').addEventListener('click', openModal);
+$('close-modal').addEventListener('click', closeModal);
+
+$('ticket-modal').addEventListener('click', event => {
+  if (event.target === $('ticket-modal')) {
+    closeModal();
+  }
+});
+
+/* =========================================================
+   CREATE TICKET
+
+   This no longer inserts into support_tickets or
+   support_messages directly from the browser.
+
+   The Edge Function must create the ticket and its first
+   message using its server-side database permissions.
+   ========================================================= */
+
+$('new-ticket-form').addEventListener('submit', async event => {
+  event.preventDefault();
+
+  if (!user) {
+    err(
+      $('ticket-form-error'),
+      'Your session has expired. Please sign in again.'
+    );
+    return;
+  }
+
+  clearErr($('ticket-form-error'));
+
+  const button = $('create-ticket-submit');
+
+  setBusy(button, true, 'Submitting ticket…');
+
+  try {
+    const subject = $('new-subject').value.trim();
+    const description = $('new-description').value.trim();
+    const category = $('new-category').value;
+    const priority = isStaff
+      ? $('new-priority').value
+      : 'normal';
+
+    const result = await api('/tickets', {
+      method: 'POST',
+      body: {
+        subject,
+        description,
+        category,
+        priority
+      }
+    });
+
+    const ticket =
+      result?.ticket ||
+      result?.data?.ticket ||
+      result?.data ||
+      result;
+
+    if (!ticket?.id) {
+      throw new Error(
+        'The server response did not include a ticket ID. Please check the Edge Function response format.'
+      );
+    }
+
+    closeModal();
+
+    await loadTickets();
+
+    const ticketNumber = ticket.ticket_number;
+
+    toast(
+      ticketNumber != null
+        ? `Ticket #FEC-${String(ticketNumber).padStart(5, '0')} submitted.`
+        : 'Your support ticket was submitted.'
+    );
+
+    const savedTicket = tickets.find(
+      item => item.id === ticket.id
+    );
+
+    if (savedTicket) {
+      await openTicket(savedTicket.id);
+    } else {
+      selectedTicket = ticket;
+      await loadTickets();
+
+      if (tickets.some(item => item.id === ticket.id)) {
+        await openTicket(ticket.id);
+      }
+    }
+  } catch (error) {
+    console.error('Create ticket error:', error);
+
+    err(
+      $('ticket-form-error'),
+      error.message || 'Could not create the ticket. Please try again.'
+    );
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+/* =========================================================
+   SEND REPLY
+   ========================================================= */
+
+$('reply-form').addEventListener('submit', async event => {
+  event.preventDefault();
+
+  if (!user || !selectedTicket) return;
+
+  const body = $('reply-text').value.trim();
+
+  if (!body) return;
+
+  const button = $('reply-submit');
+  const ticketId = selectedTicket.id;
+
+  setBusy(button, true, 'Sending…');
+
+  try {
+    await api(
+      `/tickets/${encodeURIComponent(ticketId)}/messages`,
+      {
+        method: 'POST',
+        body: {
+          body,
+          is_internal: false
+        }
+      }
+    );
+
+    $('reply-text').value = '';
+
+    await loadTickets();
+
+    if (tickets.some(ticket => ticket.id === ticketId)) {
+      await openTicket(ticketId);
+    }
+
+    toast('Reply sent.');
+  } catch (error) {
+    console.error('Send reply error:', error);
+    toast(error.message || 'Could not send reply.');
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+/* =========================================================
+   STAFF TICKET CONTROLS
+   ========================================================= */
+
+$('save-ticket-controls').addEventListener('click', async () => {
+  if (!isStaff || !selectedTicket) return;
+
+  const button = $('save-ticket-controls');
+  const ticketId = selectedTicket.id;
+
+  setBusy(button, true, 'Saving…');
+
+  try {
+    await api(
+      `/tickets/${encodeURIComponent(ticketId)}`,
+      {
+        method: 'PATCH',
+        body: {
+          status: $('staff-status').value,
+          priority: $('staff-priority').value,
+          assigned_to: $('staff-assign').value || null
+        }
+      }
+    );
+
+    await loadTickets();
+
+    toast('Ticket updated.');
+  } catch (error) {
+    console.error('Update ticket error:', error);
+    toast(error.message || 'Could not update ticket.');
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+/* =========================================================
+   REFRESH TICKETS AND MESSAGES
+
+   Use polling instead of browser-side Supabase Realtime.
+   All ticket reads go through the Edge Function.
+   ========================================================= */
+
+async function refreshWorkspace() {
+  if (!user || document.hidden) return;
+
+  try {
+    await loadTickets();
+
+    if (
+      selectedTicket &&
+      tickets.some(ticket => ticket.id === selectedTicket.id) &&
+      !loadingMessages
+    ) {
+      await openTicket(selectedTicket.id);
+    }
+  } catch (error) {
+    console.warn('Background support refresh:', error.message);
+  }
+}
+
+async function startRefreshing() {
+  stopRefreshing();
+
+  // Do an initial refresh before starting the timer.
+  await refreshWorkspace();
+
+  refreshTimer = setInterval(() => {
+    refreshWorkspace();
+  }, 20000);
+}
+
+function stopRefreshing() {
+  if (refreshTimer) {
+    clearInterval(refreshTimer);
+    refreshTimer = null;
+  }
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && user) {
+    refreshWorkspace();
+  }
+});
+
+/* =========================================================
+   END OF FLEXI SUPPORT SCRIPT
+   ========================================================= */
 </script>
 </body></html>
